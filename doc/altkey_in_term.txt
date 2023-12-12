@@ -65,6 +65,14 @@ g:altkey_in_term_keys				*g:altkey_in_term_keys*
 	    \ .. "0123456789"
 
 
+g:altkey_in_term_mode				*g:altkey_in_term_mode
+	The target mode.
+	default value: = "ncx"
+	n: Nomarl mode
+	c: Command mode
+	x: Visual mode
+	i: Insert mode (This has bug.)
+
 g:altkey_in_term_timeout			*g:altkey_in_term_timeout*
 	default value: = 10
 
