@@ -65,7 +65,7 @@ g:altkey_in_term_keys				*g:altkey_in_term_keys*
 	    \ .. "0123456789"
 
 
-g:altkey_in_term_mode				*g:altkey_in_term_mode
+g:altkey_in_term_mode				*g:altkey_in_term_mode*
 	The target mode.
 	default value: = "ncx"
 	n: Nomarl mode
