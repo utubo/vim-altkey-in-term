@@ -1,0 +1,73 @@
+*altkey_in_term.txt*	a summary
+
+Author  : utubo
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+		"Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+		distribute, sublicense, and/or sell copies of the Software, and to
+		    permit persons to whom the Software is furnished to do so, subject to
+		    the following conditions:
+		    The above copyright notice and this permission notice shall be included
+		    in all copies or substantial portions of the Software.
+
+		    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+		    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+		    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+		    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+		    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+		TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+		    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+CONTENTS					*altkey_in_term-contents*
+
+INTRODUCTION			|altkey_in_term-introduction|
+USAGE				|altkey_in_term-usage|
+INTERFACE			|altkey_in_term-interface|
+  VARIABLES			  |altkey_in_term-variables|
+
+
+==============================================================================
+INTRODUCTION					*altkey_in_term-introduction*
+
+*altkey_in_term* is a Vim plugin Alt+Key in terminal. (e.g. putty)
+
+This plugin is experimental.
+Vim may hang.
+
+Latest version:
+https://github.com/utubo/altkey_in_term.vim
+
+
+==============================================================================
+USAGE						*altkey_in_term-usage*
+
+Installation
+
+>
+    call dein#add('utubo/vim-altkey-in-term')
+<
+
+
+==============================================================================
+INTERFACE					*altkey_in_term-interface*
+
+------------------------------------------------------------------------------
+VARIABLES					*altkey_in_term-variables*
+
+g:altkey_in_term_keys				*g:altkey_in_term_keys*
+	The target keys.
+	default value: = "abcdefghijklmnopqrstuvwxyz"
+	    \ .. "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	    \ .. "0123456789"
+
+
+g:altkey_in_term_timeout			*g:altkey_in_term_timeout*
+	default value: = 10
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
