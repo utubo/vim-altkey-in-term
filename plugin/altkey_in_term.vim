@@ -9,7 +9,7 @@ if !exists('g:altkey_in_term_keys')
   let g:altkey_in_term_keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 endif
 if !exists('g:altkey_in_term_mode')
-  let g:altkey_in_term_mode = 'ncx'
+  let g:altkey_in_term_mode = 'ncxi'
 endif
 if !exists('g:altkey_in_term_timeout')
   let g:altkey_in_term_timeout = 10
