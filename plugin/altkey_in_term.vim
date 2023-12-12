@@ -14,9 +14,10 @@ endif
 if !exists('g:altkey_in_term_timeout')
   let g:altkey_in_term_timeout = 10
 endif
-nnoremap <script> <Esc> <ScriptCmd>call altkey_in_term#Alt()<CR>
-cnoremap <script> <Esc> <ScriptCmd>call altkey_in_term#Alt()<CR>
-xnoremap <script> <Esc> <ScriptCmd>call altkey_in_term#Alt()<CR>
+
+for m in g:altkey_in_term_mode->split('.\zs')
+  execute $'{m}noremap <script> <Esc> <ScriptCmd>call altkey_in_term#Alt()<CR>'
+endfor
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
