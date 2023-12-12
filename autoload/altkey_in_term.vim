@@ -1,5 +1,5 @@
 let s:save_keys = []
-let g:altkey_in_term_flg = 0
+let s:timer = 0
 
 function! altkey_in_term#Timeout(timer) abort
   let keys = g:altkey_in_term_keys->split('.\zs')
@@ -14,26 +14,27 @@ function! altkey_in_term#Timeout(timer) abort
     endif
   endfor
   let s:save_keys = []
-  if g:altkey_in_term_flg
+  if a:timer ==# 0
+    call timer_stop(s:timer)
+  else
     call feedkeys("\<Esc>", 'nit')
-  endif
-  if exists('#User#AltkeyInTerm')
-    doautocmd User AltkeyInTerm
+    if exists('#User#AltkeyInTermEsc')
+      doautocmd User AltkeyInTermEsc
+    endif
   endif
 endfunction
 
 function! altkey_in_term#Alt() abort
-  let g:altkey_in_term_flg = 1
-  let keys = g:altkey_in_term_keys->split('.\zs')
   let do_save = empty(s:save_keys)
+  let keys = g:altkey_in_term_keys->split('.\zs')
   for m in g:altkey_in_term_mode->split('.\zs')
     for k in keys
       if do_save
         let s:save_keys += [maparg(k, m, 0, 1)]
       endif
-      execute $'{m}map {k} <Cmd>let g:altkey_in_term_flg = 0<CR><A-{k}>'
+      execute $'{m}map {k} <Cmd>call altkey_in_term#Timeout(0)<CR><A-{k}>'
     endfor
   endfor
-  call timer_start(g:altkey_in_term_timeout, 'altkey_in_term#Timeout')
+  let s:timer = timer_start(g:altkey_in_term_timeout, 'altkey_in_term#Timeout')
 endfunction
 
