@@ -1,16 +1,15 @@
 let s:save_keys = []
+let s:keys = []
+let s:mode = 'n'
 let s:timer = 0
 
 function! altkey_in_term#Timeout(timer) abort
-  let keys = g:altkey_in_term_keys->split('.\zs')
-  for m in g:altkey_in_term_mode->split('.\zs')
-    for k in keys
-      silent! execute $'{m}unmap {k}'
-    endfor
+  for k in s:keys
+    silent! execute $'{s:mode}unmap {k}'
   endfor
-  for m in s:save_keys
-    if !empty(m)
-      call mapset(m)
+  for s in s:save_keys
+    if !empty(s)
+      call mapset(s)
     endif
   endfor
   let s:save_keys = []
@@ -26,14 +25,13 @@ endfunction
 
 function! altkey_in_term#Alt() abort
   let do_save = empty(s:save_keys)
-  let keys = g:altkey_in_term_keys->split('.\zs')
-  for m in g:altkey_in_term_mode->split('.\zs')
-    for k in keys
-      if do_save
-        let s:save_keys += [maparg(k, m, 0, 1)]
-      endif
-      execute $'{m}map {k} <Cmd>call altkey_in_term#Timeout(0)<CR><A-{k}>'
-    endfor
+  let s:mode = mode()->substitute('v', 'x', '')
+  let s:keys = g:altkey_in_term_keys->split('.\zs')
+  for k in s:keys
+    if do_save
+      let s:save_keys += [maparg(k, s:mode, 0, 1)]
+    endif
+    execute $'{s:mode}map {k} <Cmd>call altkey_in_term#Timeout(0)<CR><A-{k}>'
   endfor
   let s:timer = timer_start(g:altkey_in_term_timeout, 'altkey_in_term#Timeout')
 endfunction
