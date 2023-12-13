@@ -36,6 +36,7 @@ INTRODUCTION					*altkey_in_term-introduction*
 *altkey_in_term* is a Vim plugin Alt+Key in terminal. (e.g. putty)
 
 This plugin is experimental.
+This plugin overwrites `<ESC>`, so be careful.
 Vim may hang.
 
 Latest version:
@@ -60,21 +61,27 @@ VARIABLES					*altkey_in_term-variables*
 
 g:altkey_in_term_keys				*g:altkey_in_term_keys*
 	The target keys.
-	default value: = "abcdefghijklmnopqrstuvwxyz"
+	default value: "abcdefghijklmnopqrstuvwxyz"
 	    \ .. "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	    \ .. "0123456789"
 
 
 g:altkey_in_term_mode				*g:altkey_in_term_mode*
 	The target mode.
-	default value: = "ncxi"
+	default value: "ncxi"
 	n: Nomarl mode
 	c: Command mode
 	x: Visual mode
 	i: Insert mode
 
+
 g:altkey_in_term_timeout			*g:altkey_in_term_timeout*
-	default value: = 10
+	default value: 10
+
+
+g:altkey_in_term_lazy				*g:altkey_in_term_lazy*
+	default value: none
+	If you set it to 1, altkey-in-term are lazy loaded.
 
 
 ==============================================================================
