@@ -40,7 +40,7 @@ endfunction
 
 function! altkey_in_term#Alt() abort
   let do_save = empty(s:save_keys)
-  let s:mode = mode()->substitute('v', 'x', '')
+  let s:mode = mode()->substitute('[vV]', 'x', '')
   let s:keys = g:altkey_in_term_keys->split('.\zs')
   for k in s:keys
     if do_save
