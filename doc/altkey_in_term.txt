@@ -35,9 +35,12 @@ INTRODUCTION					*altkey_in_term-introduction*
 
 *altkey_in_term* is a Vim plugin Alt+Key in terminal. (e.g. putty)
 
+Note:
 This plugin is experimental.
-This plugin overwrites `<ESC>`, so be careful.
-Vim may hang.
+
+`<A-a>` is `<Esc>a` in terminal.
+So, this plugin overwrites `<ESC>`, so be careful.
+Vim may stack.
 
 Latest version:
 https://github.com/utubo/altkey_in_term.vim
