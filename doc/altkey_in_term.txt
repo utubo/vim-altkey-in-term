@@ -1,4 +1,4 @@
-*altkey_in_term.txt*	a summary
+*altkey_in_term.txt*	Enable Alt+Key in terminal
 
 Author  : utubo
 License : MIT license  {{{
